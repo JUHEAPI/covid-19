@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta property="og:image" content="https://covid-19.juheapi.com/screenshot.png" />
+  <meta property="og:locale" content="en-US">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://covid-19.juheapi.com/">
+  <meta property="og:title" content="Global COVID-19 Live Map | JUHEAPI">
+  <meta property="og:description" content="Let's resist COVID-19 together. Resistance to COVID-19 is everyone's responsibility">
+  <title>Global COVID-19 Live Map | JUHEAPI</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/border.css">
+  <link rel="stylesheet" href="style/main.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158731252-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158731252-2');
+  </script>
+</head>
+<script>
+  (function (doc, win) {
+    var docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+      var clientWidth = docEl.clientWidth;
+      if (!clientWidth) return;
+      if(clientWidth>=750){
+          docEl.style.fontSize = '100px';
+      }else{
+          docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+      }
+    };
+    recalc();
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  </script>
+<body>
+  <div class="main-wrapper">
+    <div class="header">
+      <h1>Global COVID-19 Tracker</h1>
+      <p>Follow your country and the people around you.</p>
+      <p>Resistance to COVID-19 is everyone's responsibility.</p>
+      <ul class="tab-list">
+        <li class="active"><a href="./index.html">Situation</a></li>
+        <li><a href="./news.html">News</a></li>
+        <li><a href="./mythbusters.html">Myth busters</a></li>
+        <li><a href="https://www.juheapi.com">About JUHEAPI</a></li>
+      </ul>
+    </div>
+    <div class="map-main">
+      <div class="nums-content">
+        <p class="time"></p>
+      </div>
+      <a class="amcharts" href="https://www.amcharts.com/" target="_blank" rel="noopener noreferrer"></a>
+      <div id="chartdiv"></div>
+      <div class="liner-bg"></div>
+      <div class="share-it"></div>
+    </div>
+    <div class="list-section">
+      <div class="section-wrapper">
+        <div class="global-main">
+          <h2 class="title border-title">Global Confirmed</h2>
+          <span class="total-comfirm"></span>
+          <div class="list-block">
+            <div class="comfirmed">
+              <p class="new-add">New <span class="new-nums"></span></p>
+              <div class="comfirmed-nums block-nums">
+                <div class="tabs-loading">
+                  <div><span></span></div>
+                  <div><span></span></div>
+                  <div><span></span></div>
+                </div>
+              </div>
+              <p class="description">Active</p>
+            </div>
+            <div class="recoverd">
+              <p class="new-add">New <span class="new-nums"></span></p>
+              <div class="recoverd-nums block-nums">
+                <div class="tabs-loading">
+                  <div><span></span></div>
+                  <div><span></span></div>
+                  <div><span></span></div>
+                </div>
+              </div>
+              <p class="description">Recovered</p>
+            </div>
+            <div class="deaths">
+              <p class="new-add">New <span class="new-nums"></span></p>
+              <div class="deaths-nums block-nums">
+                <div class="tabs-loading">
+                  <div><span></span></div>
+                  <div><span></span></div>
+                  <div><span></span></div>
+                </div>
+              </div>
+              <p class="description">Deaths</p>
+            </div>
+          </div>
+        </div>
+        <div class="global-main">
+          <h2 class="title">Global Summary</h2>
+          <table class="list-table" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="th-region" width="28%">Region</th>
+                <th class="th-confirmed" widht="20%">Confirmed</th>
+                <th class="th-active" width="18%">Active</th>
+                <th class="th-recoverd" width="20%">Recovered</th>
+                <th class="th-deaths" width="14%">Deaths</th>
+              </tr>
+            </thead>
+            <tbody class="list-tbody">
+              <tr>
+                <td colspan="5">
+                  <div class="tabs-loading list-loading">
+                    <div><span></span></div>
+                    <div><span></span></div>
+                    <div><span></span></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <div class="logo">
+            <span>Developed by</span><img src="images/juheapi.png" alt="juheapi">
+          </div>
+          <a class="gojuheapi" href="https://www.juheapi.com" target="_blank" rel="noopener noreferrer">Learn more about JUHEAPI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog-box">
+    <div class="dialog-wrapper">
+      <div class="content">
+        <div class="facebook">
+          <a id="fbShare" class="face-img" href="javascript:window.open('https://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location.href),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)">
+          </a>
+          <p>Facebook</p>
+        </div>
+        <div class="twitter">
+          <a class="twitter-img" href="javascript:window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(document.location.href)+'&text='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)">
+          </a>
+          <p>Twitter</p>
+        </div>
+        <div class="weibo">
+          <a class="weibo-img" href="https://service.weibo.com/share/share.php?url=https://covid-19.juheapi.com&title=Global COVID-19 Live Map&pic=https://covid-19.juheapi.com/screenshot.png">
+          </a>
+          <p>weibo</p>
+        </div>
+      </div>
+      <button class="copyBtn" type="button"><i></i>Copy Link</button>
+      <button class="hascopyBtn" type="button">Copied</button>
+      <input class="hiddenValue" type="text" name="hiddenValue" value="https://covid-19.juheapi.com/">
+    </div>
+  </div>
+  <div class="getTop">TOP</div>
+  <script src="js/core.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/worldLow.min.js"></script>
+  <script src="js/animated.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
